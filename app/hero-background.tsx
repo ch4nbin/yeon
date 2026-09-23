@@ -10,7 +10,7 @@ export function HeroBackground() {
     <>
       <div className="hero-background" aria-hidden="true">
         <Image
-          src="/yeon-assets/yeonbg.png"
+          src="/yeon/yeon-assets/yeonbg.png"
           alt=""
           fill
           sizes="100vw"
@@ -21,7 +21,14 @@ export function HeroBackground() {
         />
       </div>
       <div className="loading-screen" data-loaded={isLoaded} aria-live="polite">
-        <span className="loading-line" aria-hidden="true" />
+        <Image
+          src="/yeon/yeon-assets/yeon_logo.svg"
+          alt=""
+          width={36}
+          height={36}
+          className="loading-logo"
+          aria-hidden="true"
+        />
         <span className="sr-only">Loading background image</span>
       </div>
     </>

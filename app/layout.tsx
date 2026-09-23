@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Yeon — reliable handoffs between agents",
   description:
     "An in-process SDK and runtime for reliable, typed handoffs between AI agents.",
-  icons: { icon: "/yeon_logo.svg" },
+  icons: { icon: "/yeon/yeon-assets/yeon_logo.svg" },
 };
 
 export const viewport: Viewport = {

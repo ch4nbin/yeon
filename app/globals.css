@@ -86,16 +86,14 @@ a { color: inherit; }
   opacity: 0;
   pointer-events: none;
 }
-.loading-line {
-  width: 28px;
-  height: 1px;
-  background: var(--kir-royale-rose);
-  animation: loading-line 900ms var(--ease-in-out) infinite alternate;
-  transform-origin: center;
+.loading-logo {
+  width: 36px;
+  height: 36px;
+  animation: loading-logo 900ms var(--ease-in-out) infinite alternate;
 }
-@keyframes loading-line {
-  from { opacity: 0.25; transform: scaleX(0.35); }
-  to { opacity: 0.8; transform: scaleX(1); }
+@keyframes loading-logo {
+  from { opacity: 0.3; }
+  to { opacity: 0.85; }
 }
 
 .dictionary {
@@ -226,6 +224,7 @@ a { color: inherit; }
 }
 
 @media (max-width: 600px) {
+  body { background: #fff; }
   .page-shell { padding: 32px 26px; }
   .dictionary { width: 100%; }
   .wordmark { font-size: 20px; }
@@ -233,6 +232,8 @@ a { color: inherit; }
   .definitions { font-size: 12px; }
   .definitions li { white-space: normal; }
   .install-command { padding: 9px 12px; font-size: 10px; }
+  .hero-background { background: #fff; }
+  .hero-background::after { display: none; }
   .hero-art {
     object-fit: contain;
     object-position: right bottom;
