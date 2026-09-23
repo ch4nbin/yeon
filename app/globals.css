@@ -190,7 +190,7 @@ a { color: inherit; }
   border: 1px solid rgb(181 88 120 / 24%);
   border-radius: 10px;
   margin-top: 10px;
-  background: rgb(252 251 251 / 25%);
+  background: rgb(252 251 251 / 15%);
   color: #514e64;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 11px;
@@ -235,10 +235,9 @@ a { color: inherit; }
   .hero-background { background: #fff; }
   .hero-background::after { display: none; }
   .hero-art {
-    object-fit: contain;
-    object-position: right bottom;
-    transform: scale(1.55);
-    transform-origin: right bottom;
+    object-fit: cover;
+    object-position: 76% center;
+    transform: scale(1.04) translateY(1%);
   }
 }
 
