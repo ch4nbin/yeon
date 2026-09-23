@@ -6,6 +6,7 @@ initial project brief; it does not define protocol semantics.
 | Term | Use in the brief | Status |
 |---|---|---|
 | Agent | A specialized LLM/tool participant in an example workflow. | Provisional |
+| Handoff | A proposed transfer of a task and input to another agent, returning a result or error. | Working term; semantics not finalized |
 | Typed message | A proposed structured request or result with named fields and a return shape. | Proposal; no schema defined |
 | Query language / DSL | A possible human-readable form for declaring tasks and constraints. | Proposal; no grammar defined |
 | Latent representation | A possible compressed machine-facing representation between models. | Research direction; no encoding defined |

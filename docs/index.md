@@ -5,6 +5,8 @@
 - [Domain invariants](domain/invariants.md) and [lifecycle](domain/lifecycle.md): currently unresolved.
 - [Protocol](protocol/README.md): current normative status and future spec locations.
 - [Design principles](design/principles.md) and [ADRs](design/adr/README.md): proposals versus accepted decisions.
+- [Visual direction](design/visual-direction.md): user-provided theme, palette, and interface references.
+- [Roadmap](roadmap.md): future directions intentionally deferred from the first version.
 - [Active specs](specs/active/README.md) and [completed specs](specs/completed/README.md).
 - [Research](research/README.md): external evidence and conclusions, when added.
 - [Conformance tests](../tests/conformance/README.md): externally observable contract; no tests are defined yet.

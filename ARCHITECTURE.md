@@ -20,6 +20,24 @@ possible boundaries. No code currently confirms those boundaries. Future archite
 documentation should describe actual dependency direction, data flow, validation,
 state transitions, and extension points once they exist.
 
+## Working v1 direction
+
+The current direction is an SDK with an in-process handoff runtime:
+
+```text
+Host application
+    -> Yeon SDK/runtime
+    -> application-registered agent handler
+    -> host application's model/provider calls
+    -> validated result returned to the caller
+```
+
+Yeon would coordinate a handoff and validate/correlate its result; the host application
+would retain ownership of model calls. The initial reliability target covers work while
+the application process is running. Durable recovery across restarts is deferred. The
+exact interface, payload schema, retry policy, persistence model, and trace format remain
+open; this sketch is not normative.
+
 ## Open questions
 
 - What is the initial implemented use case and execution model?
