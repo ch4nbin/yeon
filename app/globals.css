@@ -187,10 +187,10 @@ a { color: inherit; }
   align-items: center;
   overflow-x: auto;
   padding: 10px 14px;
-  border: 1px solid var(--line);
+  border: 1px solid rgb(181 88 120 / 24%);
   border-radius: 10px;
   margin-top: 10px;
-  background: rgb(252 251 251 / 70%);
+  background: rgb(252 251 251 / 25%);
   color: #514e64;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 11px;

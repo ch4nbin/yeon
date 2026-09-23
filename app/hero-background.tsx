@@ -1,16 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function HeroBackground() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const backgroundRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (backgroundRef.current?.complete) {
+      setIsLoaded(true);
+    }
+  }, []);
 
   return (
     <>
       <div className="hero-background" aria-hidden="true">
         <Image
-          src="/yeon/yeon-assets/yeonbg.png"
+          ref={backgroundRef}
+          src="/yeon/yeon-assets/yeonbg-watercolor.png"
           alt=""
           fill
           sizes="100vw"
