@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/microfrontends.json",
+  "version": "1",
+  "applications": {
+    "portfoliov5": {
+      "packageName": "personalsitev6",
+      "development": {
+        "fallback": "www.chanbin.xyz"
+      }
+    },
+    "yeon": {
+      "assetPrefix": "yeon-assets",
+      "routing": [
+        {
+          "paths": ["/yeon", "/yeon/:path*", "/yeon-assets/:path*"]
+        }
+      ]
+    }
+  }
+}

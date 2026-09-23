@@ -1,19 +1,10 @@
-import Image from "next/image";
+import { HeroBackground } from "./hero-background";
 import { InstallCommand } from "./install-command";
 
 export default function Home() {
   return (
     <main className="page-shell">
-      <div className="hero-background" aria-hidden="true">
-        <Image
-          src="/yeonhero-hq.png"
-          alt=""
-          fill
-          sizes="100vw"
-          preload
-          className="hero-art"
-        />
-      </div>
+      <HeroBackground />
 
       <section className="dictionary" aria-labelledby="wordmark">
         <h1 className="wordmark" id="wordmark">
