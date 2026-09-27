@@ -274,12 +274,10 @@ a { color: inherit; }
   .definitions li { white-space: normal; }
   .install-command { padding: 9px 12px; font-size: 10px; }
   .hero-background { background: #fff; }
+  .hero-background::before { display: none; }
   .hero-background::after { display: none; }
-  .hero-background::before {
-    opacity: 0.42;
-  }
   .hero-art {
-    filter: blur(0.1px);
+    filter: none;
     object-fit: contain;
     object-position: right bottom;
     transform: translateY(14px) scale(1.55);
