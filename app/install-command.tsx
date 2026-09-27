@@ -27,7 +27,7 @@ export function InstallCommand() {
         ))}
       </nav>
       <div className="install-command" aria-live="polite" aria-atomic="true">
-        <code>{installCommands[packageManager]}</code>
+        <code key={packageManager}>{installCommands[packageManager]}</code>
       </div>
     </section>
   );
