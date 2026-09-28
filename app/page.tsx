@@ -28,7 +28,6 @@ export default function Home() {
         <nav className="project-links" aria-label="Project links">
           <a href="https://github.com/ch4nbin/yeon">github</a>
           <Link href="/docs">docs</Link>
-          <Link href="/docs#roadmap">roadmap</Link>
         </nav>
       </section>
     </main>
