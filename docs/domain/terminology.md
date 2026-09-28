@@ -6,6 +6,9 @@ initial project brief; it does not define protocol semantics.
 | Term | Use in the brief | Status |
 |---|---|---|
 | Agent | A specialized LLM/tool participant in an example workflow. | Provisional |
+| Yeon document | The planned abstract typed value shared by Yeon text, canonical JSON, and SDK objects. | Working term; model not defined |
+| Canonical JSON | A planned deterministic JSON representation of a Yeon document. | Working direction; rules not defined |
+| Yeon text | A planned compact textual representation of a Yeon document for agents and humans. | Working direction; grammar not defined |
 | Handoff | A proposed transfer of a task and input to another agent, returning a result or error. | Working term; semantics not finalized |
 | Typed message | A proposed structured request or result with named fields and a return shape. | Proposal; no schema defined |
 | Query language / DSL | A possible human-readable form for declaring tasks and constraints. | Proposal; no grammar defined |

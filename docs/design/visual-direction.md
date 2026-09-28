@@ -8,7 +8,7 @@ minimal and use the references as inspiration for Yeon rather than reproducing t
 Sakura-inspired with restrained East Asian cues. The page should feel quiet and
 considered, not ornamental. Use a small sakura mark as the distinctive visual detail.
 Follow the Kaji screenshot's sparse centered composition while applying Yeon's own
-palette and copy. Use the user-provided `yeonhero-hq.png` as the full-viewport background;
+palette and copy. Use `public/yeon-assets/yeonbg-sakura-v2.png` as the full-viewport background;
 keep its blossom tree visible on the right and preserve the light open space behind the
 dictionary entry for readable text.
 
@@ -45,8 +45,19 @@ inspire Yeon (for example, navigation, density, color, or motion).
 
 - [Kaji landing page](https://kaji.build/): visual and interaction reference for the landing page and frontend. The user-provided screenshot shows a minimal dictionary entry with a centered content column, small navigation/install links, and abundant empty space.
 - [Kaji source repository](https://github.com/enkyuan/kaji): direct project reference requested by the user.
+- [Agentation](https://www.agentation.com/): structural reference for Yeon's documentation page. Use its sparse sticky section index, narrow reading column, quiet utility row, thin section rules, and interactive concept preview while retaining Yeon's own identity.
+- [Agentation source repository](https://github.com/benjitaylor/agentation): implementation reference only. Recreate the useful documentation patterns in Yeon's code and visual system; do not copy Agentation branding, content, or source.
 
 Adapt the minimal dictionary presentation to Yeon's own name, product, and palette.
+
+## Documentation page
+
+The rendered documentation starts at `/yeon/docs`. It should feel related to the
+landing page while prioritizing long-form readability: restrained sans-serif body type,
+serif Yeon branding, sakura pink for selected states, pale mauve rules, and minimal
+background artwork. The source content under `docs/` remains authoritative; migrate
+the rendered page toward those Markdown sources as stable SDK and protocol reference
+material is added.
 
 ## Landing-page copy (working draft)
 

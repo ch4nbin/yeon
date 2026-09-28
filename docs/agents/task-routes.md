@@ -1,7 +1,8 @@
 # Common task routes
 
-These routes reflect the current documentation-only repository. Source and test paths
-are placeholders until an implementation and toolchain exist.
+These routes cover the planned Yeon core. Core source and test paths remain placeholders
+until the Python implementation and toolchain exist; the current executable code is the
+Next.js landing page.
 
 ## Add a protocol field
 

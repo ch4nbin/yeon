@@ -1,5 +1,5 @@
 # Yeon
 
-Exploring structured and latent communication protocols for AI agents.
+A typed, compact interchange format for communication between AI agents.
 
-[Project brief](docs/project-brief.md) · [Documentation](docs/index.md)
+[Documentation](docs/index.md) · [Architecture](ARCHITECTURE.md)

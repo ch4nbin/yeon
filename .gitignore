@@ -5,3 +5,4 @@ build/
 coverage/
 *.tsbuildinfo
 .DS_Store
+*.icloud

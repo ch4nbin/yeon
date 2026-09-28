@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { HeroBackground } from "./hero-background";
 import { InstallCommand } from "./install-command";
 
@@ -26,7 +27,7 @@ export default function Home() {
 
         <nav className="project-links" aria-label="Project links">
           <a href="https://github.com/ch4nbin/yeon">github</a>
-          <a href="https://github.com/ch4nbin/yeon/tree/main/docs">docs</a>
+          <Link href="/docs">docs</Link>
           <a href="https://www.npmjs.com/package/yeon">npm</a>
         </nav>
       </section>

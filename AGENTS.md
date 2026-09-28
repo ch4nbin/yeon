@@ -2,14 +2,15 @@
 
 ## Project summary
 
-Yeon is an early project exploring structured communication between LLM agents and
-possible latent representations. The project brief is exploratory; this repository
-does not yet contain an implementation or a normative protocol specification.
+Yeon is an early project for a typed, compact interchange format between AI agents,
+with a Python codec and in-process handoff runtime planned for the first implementation.
+The repository currently contains the landing page and planning documentation; no
+normative protocol or core implementation exists yet.
 
 ## Where to look
 
 - [README.md](README.md): short project summary.
-- [docs/project-brief.md](docs/project-brief.md): initial brief and proposal examples.
+- [docs/archive/project-brief.md](docs/archive/project-brief.md): original exploratory brief and proposal examples.
 - [ARCHITECTURE.md](ARCHITECTURE.md): what is known and still undecided about system structure.
 - [docs/domain/terminology.md](docs/domain/terminology.md): provisional terms used in the brief.
 - [docs/domain/invariants.md](docs/domain/invariants.md) and [docs/domain/lifecycle.md](docs/domain/lifecycle.md): confirmed domain rules and lifecycle; currently unresolved.
@@ -21,14 +22,14 @@ does not yet contain an implementation or a normative protocol specification.
 - [tests/conformance/](tests/conformance/README.md): externally observable protocol contract; no cases exist yet.
 - [docs/agents/](docs/agents/issue-tracker.md): issue-tracker and domain-doc conventions used by the installed engineering skills.
 - [docs/agents/task-routes.md](docs/agents/task-routes.md): context routes for common future changes.
-- [YEON_CODEX_BOOTSTRAP.md](YEON_CODEX_BOOTSTRAP.md): the full setup brief; consult when extending the repository structure.
+- [docs/archive/repository-bootstrap.md](docs/archive/repository-bootstrap.md): historical repository setup brief.
 
 ## Architecture boundaries
 
-There is no source code, language, package layout, or implemented module boundary yet.
-The protocol/runtime/transport/adapters split in the bootstrap plan is a possible
-future organization, not an established Yeon architecture. Record actual boundaries
-here and in `ARCHITECTURE.md` only when implementation evidence supports them.
+The landing page uses Next.js and TypeScript. The Yeon core has no implemented language
+package or module boundary yet. The current working direction is a Python implementation
+of the document model, canonical JSON codec, compact syntax, validation, and an
+in-process runtime. Record actual boundaries here and in `ARCHITECTURE.md` as code lands.
 
 ## Workflow for non-trivial changes
 
@@ -55,10 +56,11 @@ project skill under `.agents/skills/` when applicable. The inventory is in
 
 ## Verification
 
-No application test, lint, format, type-check, or build commands are configured
-because the repository currently has no source code or toolchain. For documentation
-changes, run `git diff --check`. Do not invent project commands; update this section
-when a toolchain is introduced.
+For documentation-only changes, run `git diff --check`.
+
+The landing page supports `npm run dev`, `npm run build`, and `npm run start`. No lint,
+unit-test, or Yeon core verification commands exist yet. Add the core commands here when
+the Python toolchain is introduced.
 
 ## Completion rule
 

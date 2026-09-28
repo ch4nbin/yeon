@@ -59,19 +59,9 @@ a { color: inherit; }
   z-index: -1;
   inset: 0;
   overflow: hidden;
-  background: var(--background);
+  background: #fff;
   isolation: isolate;
   pointer-events: none;
-}
-.hero-background::before {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='1.7' intercept='-0.35'/%3E%3CfeFuncG type='linear' slope='1.7' intercept='-0.35'/%3E%3CfeFuncB type='linear' slope='1.7' intercept='-0.35'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.85'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 180px 180px;
-  content: "";
-  mix-blend-mode: overlay;
 }
 .hero-background::after {
   position: absolute;
@@ -82,9 +72,21 @@ a { color: inherit; }
 }
 .hero-art {
   z-index: 0;
-  filter: blur(0.4px);
   object-fit: cover;
   object-position: center;
+  opacity: 0;
+}
+.hero-dither {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: block;
+  image-rendering: pixelated;
+  opacity: 0;
+  transition: opacity 220ms var(--ease-out);
+}
+.hero-dither[data-ready="true"] {
+  opacity: 1;
 }
 
 .loading-screen {
@@ -120,13 +122,11 @@ a { color: inherit; }
 .dictionary > * {
   opacity: 0;
   transform: translateY(10px);
-}
-.loading-screen[data-loaded="true"] + .dictionary > * {
   animation: content-enter 560ms var(--ease-out-expo) both;
 }
-.loading-screen[data-loaded="true"] + .dictionary > :nth-child(2) { animation-delay: 60ms; }
-.loading-screen[data-loaded="true"] + .dictionary > :nth-child(3) { animation-delay: 120ms; }
-.loading-screen[data-loaded="true"] + .dictionary > :nth-child(4) { animation-delay: 180ms; }
+.dictionary > :nth-child(2) { animation-delay: 60ms; }
+.dictionary > :nth-child(3) { animation-delay: 120ms; }
+.dictionary > :nth-child(4) { animation-delay: 180ms; }
 @keyframes content-enter {
   to { opacity: 1; transform: translateY(0); }
 }
@@ -274,10 +274,8 @@ a { color: inherit; }
   .definitions li { white-space: normal; }
   .install-command { padding: 9px 12px; font-size: 10px; }
   .hero-background { background: #fff; }
-  .hero-background::before { display: none; }
   .hero-background::after { display: none; }
   .hero-art {
-    filter: none;
     object-fit: contain;
     object-position: right bottom;
     transform: translateY(14px) scale(1.55);
