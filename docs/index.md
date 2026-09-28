@@ -7,7 +7,7 @@ the public site build.
 
 ## Product documentation
 
-- [Architecture](../ARCHITECTURE.md): current system structure and open questions.
+- [Architecture](architecture.md): accepted v1 system structure and open questions.
 - [Terminology](domain/terminology.md): Yeon's working vocabulary.
 - [Protocol](protocol/README.md): normative protocol status and future reference.
 - [Conformance tests](../tests/conformance/README.md): future executable protocol contract.

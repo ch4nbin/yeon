@@ -35,10 +35,13 @@ function colorAtLuminance(
   return [clampColor(red * amount), clampColor(green * amount), clampColor(blue * amount)];
 }
 
-function renderDitheredBackground(image: HTMLImageElement, canvas: HTMLCanvasElement) {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const isMobile = window.matchMedia("(max-width: 600px)").matches;
+function renderDitheredBackground(
+  image: HTMLImageElement,
+  canvas: HTMLCanvasElement,
+  width: number,
+  height: number,
+  isMobile: boolean,
+) {
   const ditherWidth = Math.ceil(width / PIXEL_SIZE);
   const ditherHeight = Math.ceil(height / PIXEL_SIZE);
 
@@ -128,6 +131,7 @@ export function HeroBackground() {
   const [isLoaderVisible, setIsLoaderVisible] = useState(false);
   const backgroundRef = useRef<HTMLImageElement>(null);
   const ditherRef = useRef<HTMLCanvasElement>(null);
+  const renderedViewportRef = useRef<{ width: number; height: number } | null>(null);
 
   useEffect(() => {
     const background = backgroundRef.current;
@@ -159,20 +163,32 @@ export function HeroBackground() {
     if (!isSourceReady || !background || !canvas) return;
 
     let animationFrame = 0;
-    const render = () => {
+    const render = (force = false) => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const isMobile = window.matchMedia("(max-width: 600px)").matches;
+      const previousViewport = renderedViewportRef.current;
+
+      if (!force && isMobile && previousViewport?.width === width) {
+        return;
+      }
+
+      renderedViewportRef.current = { width, height };
       window.cancelAnimationFrame(animationFrame);
       animationFrame = window.requestAnimationFrame(() => {
-        renderDitheredBackground(background, canvas);
+        renderDitheredBackground(background, canvas, width, height, isMobile);
         setIsLoaded(true);
         setIsLoaderVisible(false);
       });
     };
 
-    render();
-    window.addEventListener("resize", render);
+    const handleResize = () => render();
+
+    render(true);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", render);
+      window.removeEventListener("resize", handleResize);
       window.cancelAnimationFrame(animationFrame);
     };
   }, [isSourceReady]);

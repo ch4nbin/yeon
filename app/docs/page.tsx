@@ -1,108 +1,32 @@
-import Image from "next/image";
 import Link from "next/link";
+import { DocsSidebar } from "./docs-sidebar";
 import styles from "./docs.module.css";
-
-type NavigationGroup = {
-  label: string;
-  links: Array<{
-    label: string;
-    href: string;
-    active?: boolean;
-    external?: boolean;
-  }>;
-};
-
-const navigation: NavigationGroup[] = [
-  {
-    label: "Overview",
-    links: [
-      { label: "Introduction", href: "#introduction", active: true },
-      { label: "Why Yeon", href: "#why-yeon" },
-      { label: "Current scope", href: "#current-scope" },
-    ],
-  },
-  {
-    label: "Core format",
-    links: [
-      { label: "Document model", href: "#document-model" },
-      { label: "Canonical JSON", href: "#canonical-json" },
-      { label: "Compact syntax", href: "#compact-syntax" },
-    ],
-  },
-  {
-    label: "Resources",
-    links: [
-      { label: "Architecture", href: "#architecture" },
-      { label: "Roadmap", href: "#roadmap" },
-      { label: "GitHub", href: "https://github.com/ch4nbin/yeon", external: true },
-    ],
-  },
-];
 
 export default function DocsPage() {
   return (
     <main className={styles.docsRoot}>
-      <div className={styles.docsFrame}>
-        <aside className={styles.sidebar}>
-          <Link className={styles.brand} href="/" aria-label="Yeon home">
-            <Image
-              src="/yeon/yeon-assets/yeon_logo.svg"
-              alt=""
-              width={22}
-              height={22}
-              aria-hidden="true"
-            />
-            <span>Yeon</span>
-          </Link>
+      <DocsSidebar />
 
-          <nav className={styles.navigation} aria-label="Documentation sections">
-            {navigation.map((group) => (
-              <div className={styles.navGroup} key={group.label}>
-                <p>{group.label}</p>
-                {group.links.map((link) => (
-                  <a
-                    className={link.active ? styles.activeNavLink : styles.navLink}
-                    href={link.href}
-                    key={link.label}
-                    {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-                  >
-                    {link.label}
-                    {link.external && <span aria-hidden="true"> ↗</span>}
-                  </a>
-                ))}
-              </div>
-            ))}
-          </nav>
-        </aside>
+      <article className={styles.article}>
+        <header className={styles.utilityBar}>
+          <span>pre-alpha · protocol design</span>
+          <a href="https://github.com/ch4nbin/yeon" target="_blank" rel="noreferrer">
+            view on github <span aria-hidden="true">↗</span>
+          </a>
+        </header>
 
-        <article className={styles.content}>
-          <header className={styles.utilityBar}>
-            <span>core v1 · discovery</span>
-            <a href="https://github.com/ch4nbin/yeon" target="_blank" rel="noreferrer">
-              github.com/ch4nbin/yeon <span aria-hidden="true">↗</span>
-            </a>
-          </header>
+        <section id="introduction" className={styles.introduction}>
+          <h1>Yeon documentation</h1>
+          <p>
+            Yeon is a framework-neutral protocol and Python runtime for typed handoffs
+            between AI agents. It gives different frameworks one document model,
+            lifecycle, and observability surface.
+          </p>
+        </section>
 
-          <section id="introduction" className={styles.introduction}>
-            <p className={styles.eyebrow}>Documentation</p>
-            <h1>A shared language for agents.</h1>
-            <p className={styles.lead}>
-              Yeon is an early, typed interchange format for communication between AI
-              agents. One document model will connect compact Yeon text, canonical JSON,
-              and Python objects.
-            </p>
-          </section>
-
-          <figure className={styles.formatPreview} aria-labelledby="format-preview-caption">
-            <div className={styles.previewChrome}>
-              <span />
-              <span />
-              <span />
-              <p>handoff.yeon</p>
-              <small>concept</small>
-            </div>
-            <pre>
-              <code>{`handoff research_company @1
+        <figure className={styles.formatPreview} aria-labelledby="format-preview-caption">
+          <pre>
+            <code>{`handoff research_company @1
   planner -> researcher
 
   in
@@ -110,124 +34,131 @@ export default function DocsPage() {
 
   out ResearchReport
   within 30s`}</code>
-            </pre>
-            <figcaption id="format-preview-caption">
-              Illustrative syntax. The grammar is still being designed.
-            </figcaption>
-          </figure>
+          </pre>
+          <figcaption id="format-preview-caption">
+            Illustrative syntax. The grammar is still being designed.
+          </figcaption>
+        </figure>
 
-          <section id="why-yeon" className={styles.section}>
-            <div className={styles.sectionHeading}>
-              <h2>Why Yeon</h2>
-              <span />
-            </div>
-            <p>
-              JSON is portable, but it does not describe agent intent, expected output,
-              deadlines, schema identity, or canonical representation. Yeon aims to make
-              those ideas explicit while remaining easy to convert to JSON.
-            </p>
-            <ul className={styles.featureList}>
-              <li>
-                <strong>Typed</strong>
-                <span>Validate inputs and outputs against named schemas.</span>
-              </li>
-              <li>
-                <strong>Compact</strong>
-                <span>Reduce repeated structure and measure token use against JSON.</span>
-              </li>
-              <li>
-                <strong>Deterministic</strong>
-                <span>Give equivalent documents one canonical representation.</span>
-              </li>
-              <li>
-                <strong>Portable</strong>
-                <span>Keep the model independent of providers and transports.</span>
-              </li>
-            </ul>
-          </section>
+        <section id="why-yeon" className={styles.section}>
+          <h2>Why Yeon</h2>
+          <p>
+            Agent frameworks already support structured values. Yeon focuses on the
+            contract between agents: what work was requested, which schemas apply, how
+            execution progresses, and how the outcome is represented across frameworks.
+          </p>
+          <ul>
+            <li><strong>Typed:</strong> validate inputs and outputs against named schemas.</li>
+            <li><strong>Observable:</strong> describe lifecycle changes with structured events.</li>
+            <li><strong>Deterministic:</strong> give equivalent documents one canonical representation.</li>
+            <li><strong>Portable:</strong> keep documents independent of providers and transports.</li>
+          </ul>
+        </section>
 
-          <aside className={styles.note}>
-            <span className={styles.noteMark} aria-hidden="true">緣</span>
-            <p>
-              Yeon is in discovery. Examples on this page explain the direction and are
-              not yet a stable protocol contract.
-            </p>
-          </aside>
+        <aside className={styles.note}>
+          Yeon is in discovery. The examples here describe the direction of the project,
+          not a stable protocol contract.
+        </aside>
 
-          <section id="current-scope" className={styles.section}>
-            <div className={styles.sectionHeading}>
-              <h2>Current scope</h2>
-              <span />
+        <section id="documents" className={styles.section}>
+          <h2>Documents</h2>
+          <dl className={styles.referenceList}>
+            <div>
+              <dt>Handoff</dt>
+              <dd>A request to run a named target with typed input and expected output.</dd>
             </div>
-            <ol className={styles.steps}>
-              <li id="document-model">
-                <span>01</span>
-                <div>
-                  <h3>Document model</h3>
-                  <p>Define the values and document kinds shared by every representation.</p>
-                </div>
-              </li>
-              <li id="canonical-json">
-                <span>02</span>
-                <div>
-                  <h3>Canonical JSON</h3>
-                  <p>Create a deterministic, hashable representation for interoperability.</p>
-                </div>
-              </li>
-              <li id="compact-syntax">
-                <span>03</span>
-                <div>
-                  <h3>Compact syntax</h3>
-                  <p>Design a concise grammar that agents can generate reliably.</p>
-                </div>
-              </li>
-              <li>
-                <span>04</span>
-                <div>
-                  <h3>Python SDK</h3>
-                  <p>Parse, validate, encode, and use Yeon documents in existing flows.</p>
-                </div>
-              </li>
-            </ol>
-          </section>
+            <div>
+              <dt>Result</dt>
+              <dd>The successful terminal response to a handoff.</dd>
+            </div>
+            <div>
+              <dt>Error</dt>
+              <dd>The failed terminal response to a handoff.</dd>
+            </div>
+            <div>
+              <dt>Event</dt>
+              <dd>A structured observation about the handoff lifecycle.</dd>
+            </div>
+          </dl>
+        </section>
 
-          <section id="architecture" className={styles.section}>
-            <div className={styles.sectionHeading}>
-              <h2>Architecture</h2>
-              <span />
-            </div>
-            <div className={styles.pipeline} aria-label="Yeon representation flow">
-              <code>Yeon text</code>
-              <span aria-hidden="true">↔</span>
-              <code>document</code>
-              <span aria-hidden="true">↔</span>
-              <code>JSON</code>
-            </div>
-            <p>
-              The Python SDK and in-process runtime will use the same document model.
-              Durable and distributed execution remain later additions.
-            </p>
-          </section>
+        <section id="representations" className={styles.section}>
+          <h2>Representations</h2>
+          <div className={styles.pipeline} aria-label="Yeon representation flow">
+            <code>Compact Yeon&nbsp; ↔ &nbsp;document&nbsp; ↔ &nbsp;canonical JSON</code>
+          </div>
+          <p>
+            These are three representations of one logical document. Canonical JSON is
+            deterministic and machine-facing. Compact Yeon is optional, LLM-facing, and
+            will remain only if benchmarks show an advantage over JSON.
+          </p>
+        </section>
 
-          <section id="roadmap" className={styles.section}>
-            <div className={styles.sectionHeading}>
-              <h2>What comes next</h2>
-              <span />
-            </div>
-            <p>
-              We are defining representative messages and measurable success criteria
-              before locking the grammar. SDK guides and runnable examples will replace
-              these concept notes as the implementation becomes real.
-            </p>
-            <div className={styles.pageLinks}>
-              <a href="https://github.com/ch4nbin/yeon/tree/main/docs" target="_blank" rel="noreferrer">
-                Read the working docs <span aria-hidden="true">↗</span>
-              </a>
-              <Link href="/">Return to Yeon</Link>
-            </div>
-          </section>
-        </article>
-      </div>
+        <section id="schemas" className={styles.section}>
+          <h2>Schemas</h2>
+          <p>
+            Named, versioned schemas validate inputs before an agent runs and validate
+            outputs before a result is returned. Identity, compatibility, and evolution
+            rules are still being designed.
+          </p>
+        </section>
+
+        <section id="runtime" className={styles.section}>
+          <h2>Local runtime</h2>
+          <p>
+            V1 runs registered agents in one Python process. The runtime validates a
+            handoff, finds its target, executes it, validates the output, and returns a
+            Result or Error.
+          </p>
+          <ol>
+            <li>Receive and validate the Handoff.</li>
+            <li>Resolve the target in the local agent registry.</li>
+            <li>Execute with deadlines, cancellation, and retries.</li>
+            <li>Validate output and emit the terminal document.</li>
+          </ol>
+        </section>
+
+        <section id="lifecycle" className={styles.section}>
+          <h2>Lifecycle</h2>
+          <div className={styles.pipeline} aria-label="Handoff lifecycle">
+            <code>pending&nbsp; → &nbsp;running&nbsp; → &nbsp;completed | failed | cancelled</code>
+          </div>
+          <p>
+            The runtime emits structured events for each lifecycle change. CLI logs and
+            traces consume those events now; a future web interface can consume the same
+            stream later.
+          </p>
+        </section>
+
+        <section id="integrations" className={styles.section}>
+          <h2>Integrations</h2>
+          <p>
+            OpenAI, Anthropic, LangChain, LangGraph, MCP, and custom agents connect
+            through adapters. Provider-specific objects stay outside the core document
+            model.
+          </p>
+        </section>
+
+        <section id="roadmap" className={styles.section}>
+          <h2>What comes next</h2>
+          <p>
+            Work begins with documents, schemas, the Python SDK, and the local runtime.
+            Canonical JSON, Compact Yeon, CLI tracing, benchmarks, and integrations
+            follow. Persistence, remote workers, durable queues, load balancing, and
+            multi-tenant infrastructure are deferred.
+          </p>
+          <div className={styles.pageLinks}>
+            <a
+              href="https://github.com/ch4nbin/yeon/tree/main/docs"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Working notes <span aria-hidden="true">↗</span>
+            </a>
+            <Link href="/">Yeon home</Link>
+          </div>
+        </section>
+      </article>
     </main>
   );
 }

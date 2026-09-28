@@ -1,6 +1,10 @@
 # Architecture decision records
 
-No accepted ADRs exist yet. Add an ADR here when a decision is architecturally
-significant, difficult to reverse, changes protocol semantics or module boundaries, or
-would otherwise be confusing without its rationale. Do not record speculative ideas as
-accepted decisions.
+Accepted decisions:
+
+- [0001: Build v1 as a framework-neutral protocol and local Python runtime](0001-v1-local-runtime.md)
+- [0002: Use one document model with multiple representations](0002-one-document-multiple-representations.md)
+
+Add an ADR when a decision is difficult to reverse, surprising without context, and
+the result of a real tradeoff. Protocol details that are still being explored belong in
+an active specification rather than an accepted ADR.

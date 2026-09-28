@@ -1,23 +1,31 @@
 # Future directions
 
-Keep ideas that are useful but intentionally outside the current v1 scope here. These
-are candidates, not commitments; revisit them when a concrete use case requires them.
+These ideas are intentionally outside v1. They are candidates rather than commitments.
+Promote one to an active specification only when the local protocol and runtime provide
+evidence for the problem it solves.
 
-## Deferred distributed runtime
+## Distributed runtime
 
-- Recover handoffs across process restarts.
-- Persist handoff and attempt state.
+- Persist handoff and attempt state across process restarts.
 - Execute work on remote workers.
-- Add durable queues and at-least-once delivery.
-- Coordinate idempotency, worker leases, heartbeats, retries, and fencing tokens.
+- Add durable queues and explicit delivery guarantees.
+- Coordinate idempotency, leases, heartbeats, retries, and fencing tokens.
 - Route work by agent capability and capacity.
 - Scale stateless gateways behind a load balancer.
 - Add multi-tenant authentication, quotas, and isolation.
 
-These features remain relevant, but the document model, canonical JSON, compact syntax,
-schema validation, Python codec, and in-process runtime come first. The core format
-should stay transport independent so distribution can be added without changing user
-payloads.
+## Product surfaces
 
-Add future ideas here as they come up, with the problem they address and the reason they
-were deferred. Promote an item to an active spec only after agreeing on its scope.
+- Web dashboard consuming the same structured event and trace stream as the CLI.
+- Hosted trace storage and cross-run inspection.
+- Shared schema registry and compatibility tooling.
+
+## Research
+
+- Learned latent representations between compatible models.
+- Binary or compressed encodings beyond Compact Yeon.
+- Capability negotiation across heterogeneous runtimes.
+
+Distribution work begins only after the local runtime proves the document model,
+lifecycle, failure semantics, and observability interface. Core documents must remain
+transport independent so distribution does not change application payloads.

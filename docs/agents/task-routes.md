@@ -19,7 +19,7 @@ Next.js landing page.
 
 ## Add a transport
 
-1. Read `AGENTS.md` and `ARCHITECTURE.md`.
+1. Read `AGENTS.md` and `docs/architecture.md`.
 2. Confirm the actual transport abstraction and dependency direction once implementation exists; none is established today.
 3. Check protocol invariants and relevant ADRs, inspect existing transport implementations, and add integration/conformance coverage.
 

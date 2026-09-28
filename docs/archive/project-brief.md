@@ -4,7 +4,7 @@
 > sketches below are exploratory proposals, not normative Yeon protocol behavior.
 > No implementation, schemas, lifecycle, or compatibility rules are defined yet.
 
-See [repository guidance](../../AGENTS.md), [architecture](../../ARCHITECTURE.md), and the
+See [repository guidance](../../AGENTS.md), [architecture](../architecture.md), and the
 [documentation map](../index.md).
 
 ## 1. The Core Idea

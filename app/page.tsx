@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { HeroBackground } from "./hero-background";
-import { InstallCommand } from "./install-command";
+import { HeroBackground } from "./_components/hero-background";
+import { InstallCommand } from "./_components/install-command";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
             a bond between people, attributed to fate rather than choice.
           </li>
           <li>
-            an in-process sdk and runtime for reliable, typed handoffs between ai agents.
+            a typed protocol and local runtime for reliable handoffs between ai agents.
           </li>
         </ol>
 
@@ -28,7 +28,7 @@ export default function Home() {
         <nav className="project-links" aria-label="Project links">
           <a href="https://github.com/ch4nbin/yeon">github</a>
           <Link href="/docs">docs</Link>
-          <a href="https://www.npmjs.com/package/yeon">npm</a>
+          <Link href="/docs#roadmap">roadmap</Link>
         </nav>
       </section>
     </main>

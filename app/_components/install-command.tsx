@@ -3,14 +3,14 @@
 import { useState } from "react";
 
 const installCommands = {
-  npm: "npm install yeon",
-  pnpm: "pnpm add yeon",
+  pip: "pip install yeon",
+  uv: "uv add yeon",
 } as const;
 
 type PackageManager = keyof typeof installCommands;
 
 export function InstallCommand() {
-  const [packageManager, setPackageManager] = useState<PackageManager>("npm");
+  const [packageManager, setPackageManager] = useState<PackageManager>("pip");
 
   return (
     <section className="install-section" aria-label="Install Yeon">

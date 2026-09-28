@@ -2,18 +2,17 @@
 
 ## Project summary
 
-Yeon is an early project for a typed, compact interchange format between AI agents,
-with a Python codec and in-process handoff runtime planned for the first implementation.
-The repository currently contains the landing page and planning documentation; no
-normative protocol or core implementation exists yet.
+Yeon is an early framework-neutral protocol and Python runtime for typed communication
+between AI agents. The v1 architecture is agreed, but the protocol grammar and runtime
+have not been implemented and no normative protocol specification exists yet.
 
 ## Where to look
 
 - [README.md](README.md): short project summary.
 - [docs/archive/project-brief.md](docs/archive/project-brief.md): original exploratory brief and proposal examples.
-- [ARCHITECTURE.md](ARCHITECTURE.md): what is known and still undecided about system structure.
+- [docs/architecture.md](docs/architecture.md): accepted v1 structure and unresolved details.
 - [docs/domain/terminology.md](docs/domain/terminology.md): provisional terms used in the brief.
-- [docs/domain/invariants.md](docs/domain/invariants.md) and [docs/domain/lifecycle.md](docs/domain/lifecycle.md): confirmed domain rules and lifecycle; currently unresolved.
+- [docs/domain/invariants.md](docs/domain/invariants.md) and [docs/domain/lifecycle.md](docs/domain/lifecycle.md): accepted v1 rules and unresolved details.
 - [docs/protocol/](docs/protocol/README.md): normative protocol status and future protocol docs.
 - [docs/design/adr/](docs/design/adr/README.md): accepted architectural decisions.
 - [docs/design/visual-direction.md](docs/design/visual-direction.md): user-provided product and visual design preferences.
@@ -26,10 +25,12 @@ normative protocol or core implementation exists yet.
 
 ## Architecture boundaries
 
-The landing page uses Next.js and TypeScript. The Yeon core has no implemented language
-package or module boundary yet. The current working direction is a Python implementation
-of the document model, canonical JSON codec, compact syntax, validation, and an
-in-process runtime. Record actual boundaries here and in `ARCHITECTURE.md` as code lands.
+The landing page uses Next.js and TypeScript. The accepted v1 direction is a
+framework-neutral document model, schema validation, Python SDK, in-process runtime,
+canonical JSON codec, optional Compact Yeon codec, structured events, and a CLI
+renderer. Distributed execution is deferred. These are target module seams rather than
+implemented package boundaries; record concrete boundaries here and in
+`docs/architecture.md` as code lands.
 
 ## Workflow for non-trivial changes
 

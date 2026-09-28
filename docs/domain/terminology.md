@@ -1,19 +1,24 @@
 # Terminology
 
-No canonical Yeon glossary has been agreed. This page records how terms appear in the
-initial project brief; it does not define protocol semantics.
+These terms define the accepted v1 domain language. Field-level and wire-level
+semantics remain unresolved until protocol specifications and conformance cases exist.
 
-| Term | Use in the brief | Status |
+| Term | Yeon meaning | Status |
 |---|---|---|
-| Agent | A specialized LLM/tool participant in an example workflow. | Provisional |
-| Yeon document | The planned abstract typed value shared by Yeon text, canonical JSON, and SDK objects. | Working term; model not defined |
-| Canonical JSON | A planned deterministic JSON representation of a Yeon document. | Working direction; rules not defined |
-| Yeon text | A planned compact textual representation of a Yeon document for agents and humans. | Working direction; grammar not defined |
-| Handoff | A proposed transfer of a task and input to another agent, returning a result or error. | Working term; semantics not finalized |
-| Typed message | A proposed structured request or result with named fields and a return shape. | Proposal; no schema defined |
-| Query language / DSL | A possible human-readable form for declaring tasks and constraints. | Proposal; no grammar defined |
-| Latent representation | A possible compressed machine-facing representation between models. | Research direction; no encoding defined |
-| Hidden state, logits, KV cache, weights | Model concepts discussed as possible internal information. | Explanatory terms only; no Yeon behavior defined |
+| Agent | A callable participant registered with the runtime under a target name. | V1 |
+| Yeon document | The typed semantic object shared by SDK objects and all encodings. | V1 |
+| Handoff | A request to execute a named target with typed input and expected output. | V1 |
+| Result | The successful terminal response to a handoff. | V1 |
+| Error | The failed terminal response to a handoff. | V1 |
+| Event | A structured observation about a handoff lifecycle. Events do not replace the terminal Result or Error. | V1 |
+| Schema | A named, versioned contract used to validate document input or output. | V1; compatibility rules open |
+| Compact Yeon | The optional LLM-facing textual encoding of a Yeon document. | V1 research target; grammar open |
+| Canonical JSON | The deterministic machine-facing encoding of a Yeon document. | V1; canonical rules open |
+| Python SDK | Typed document objects and interfaces for parse, validate, encode, and decode operations. | V1 |
+| Runtime | The in-process execution engine that validates and dispatches handoffs to registered agents. | V1 |
+| Agent registry | The runtime mapping from a handoff target name to a callable agent. | V1 |
+| Trace | Structured records associated with a handoff or trace identifier. | V1; field model open |
+| Renderer | A consumer that turns structured runtime events into a presentation such as CLI output. | V1 |
+| Adapter | An integration that connects a framework, provider, or presentation layer to a Yeon interface. | V1 |
 
-When a term becomes part of an implemented design, record its Yeon-specific meaning
-here and link the protocol docs or ADR that establish it.
+Learned latent representations remain a research idea and are not part of v1.
